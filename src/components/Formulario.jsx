@@ -1,4 +1,8 @@
+import { useState, useEffect } from "react";
+
 export const Formulario = () => {
+  const [nombre, setNombre] = useState("");
+
   return (
     <div className="md:w-1/2 lg:w-2/5">
       <h2 className="font-black text-3xl text-center">Seguimiento pacientes</h2>
@@ -20,6 +24,8 @@ export const Formulario = () => {
             type="text"
             placeholder="Nombre de la mascota"
             className="border-2 w-full mt-2 placeholder-gray-400 rounded-md"
+            value={nombre}
+            onChange={(e)=>setNombre(e.target.value)}
           />
         </div>
         <div className="mb-5">
