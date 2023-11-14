@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Formulario } from "./components/Formulario";
 import { Header } from "./components/Header";
 import { ListadoPacientes } from "./components/ListadoPacientes";
@@ -6,6 +6,10 @@ import { ListadoPacientes } from "./components/ListadoPacientes";
 function App() {
   const [pacientes, setPacientes] = useState([]);
   const [paciente, setPaciente] = useState({});
+
+  useEffect(() => {
+    localStorage.setItem("pacientes", JSON.stringify(pacientes));
+  }, [pacientes]);
 
   const eliminarPaciente = (id) => {
     // console.log("eliminando paciente", id);
